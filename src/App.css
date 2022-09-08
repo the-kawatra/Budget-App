@@ -1,0 +1,151 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0 3rem;
+  font-family: Helvetica, sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem 0 2rem;
+}
+
+header h1 {
+  text-transform: uppercase;
+}
+
+.balance {
+  background: rgb(192, 239, 255);
+  padding: 2rem;
+  border-radius: 5px;
+  font-size: 1.5rem;
+}
+
+#app-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.grid-container {
+  padding: 1rem;
+}
+
+#amounts {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+}
+
+.total {
+  width: 50%;
+  margin: 0 1rem;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.total p {
+  color: red;
+  font-weight: 700;
+}
+
+#transaction-form {
+  margin: 1rem;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+#transaction-form h3 {
+  font-size: 1.5rem;
+}
+
+.form-input {
+  margin: 1rem;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+}
+
+.form-input:focus:not([type="submit"]) {
+  border-radius: 20px;
+}
+
+#transaction-type {
+  margin: 1rem;
+  padding: 0 1rem;
+}
+
+#transaction-type input {
+  margin-left: 2rem;
+  font-size: 1rem;
+}
+
+.form-input[type="submit"] {
+  background: linear-gradient(to right, #ffce00 50%, #fe4880 50%);
+  background-size: 200%;
+  background-position: 0%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.form-input[type="submit"]:hover {
+  background-position: 100%;
+}
+
+#transactions {
+  padding: 1rem;
+}
+
+#transactions h3 {
+  font-size: 1.5rem;
+}
+
+#search {
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  width: 90%;
+}
+
+#search:focus {
+  border-radius: 20px;
+}
+
+#transactions-list {
+  margin: 2rem 0;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+#transaction-item {
+  padding: 1rem;
+  display: flex;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#transaction-item #remove-item {
+  width: 15%;
+  padding: 0.5rem 1rem;
+  background-color: #ff7c7c;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  border-radius: 10px 0 0 10px;
+}
+
+#transaction-item #remove-item:hover {
+  border-radius: 15px 0 0 15px;
+}
+
+#transaction-item #desc {
+  width: 60%;
+  padding: 0.5rem 1rem;
+}
+
+#transaction-item #price {
+  width: 25%;
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
