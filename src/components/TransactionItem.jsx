@@ -5,12 +5,12 @@ const TransactionItem = ({ item, index, removeItem }) => {
     removeItem(i);
   };
 
-  const bgcolor = item.type === "expense" ? "#ffdaba" : "#b1ffff";
+  const bgcolor = item.type === "expense" ? "#d8737f" : "#475979";
 
   return (
     <div id="transaction-item" style={{ background: bgcolor }}>
       <button id="remove-item" onClick={() => removeHandle(index)}>
-        Delete
+        X
       </button>
       <div id="desc">{item.desc}</div>
       <div id="price">&#x20B9;{item.price}</div>

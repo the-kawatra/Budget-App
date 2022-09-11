@@ -1,34 +1,39 @@
 body {
   box-sizing: border-box;
   margin: 0;
-  padding: 0 3rem;
+  padding: 0;
   font-family: Helvetica, sans-serif;
 }
 
 header {
+  min-height: 10vh;
   display: flex;
   justify-content: space-between;
-  padding: 1rem 2rem 0 2rem;
+  align-items: center;
+  padding: 1rem 3rem;
+  background: #685d79;
 }
 
 header h1 {
   text-transform: uppercase;
+  margin: 1rem;
+  color: white;
 }
 
 .balance {
-  background: rgb(192, 239, 255);
-  padding: 2rem;
+  background: white;
   border-radius: 5px;
+  padding: 1rem;
   font-size: 1.5rem;
 }
 
 #app-body {
+  min-height: 90vh;
+  padding: 2rem 3rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
-}
-
-.grid-container {
-  padding: 1rem;
+  column-gap: 2rem;
+  background: #ffd7a7;
 }
 
 #amounts {
@@ -38,12 +43,18 @@ header h1 {
 }
 
 .total {
+  background: white;
   width: 50%;
   margin: 0 1rem;
   padding: 1rem 2rem;
   border-radius: 10px;
   font-size: 1.5rem;
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+.total * {
+  margin: 0;
 }
 
 .total p {
@@ -55,12 +66,13 @@ header h1 {
   margin: 1rem;
   padding: 1rem 2rem;
   border-radius: 10px;
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+  background: white;
   display: flex;
   flex-direction: column;
 }
 
 #transaction-form h3 {
+  margin-left: 2rem;
   font-size: 1.5rem;
 }
 
@@ -107,7 +119,7 @@ header h1 {
 #search {
   padding: 1rem 2rem;
   border-radius: 10px;
-  width: 90%;
+  width: 70%;
 }
 
 #search:focus {
@@ -116,27 +128,26 @@ header h1 {
 
 #transactions-list {
   margin: 2rem 0;
-  border-radius: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 #transaction-item {
   padding: 1rem;
   display: flex;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  color: white;
 }
 
 #transaction-item #remove-item {
   width: 15%;
   padding: 0.5rem 1rem;
-  background-color: #ff7c7c;
+  background-color: #ff0000;
   border: 1px solid rgba(0, 0, 0, 0.3);
   cursor: pointer;
-  border-radius: 10px 0 0 10px;
+  border-radius: 10px;
 }
 
 #transaction-item #remove-item:hover {
-  border-radius: 15px 0 0 15px;
+  border-radius: 15px;
 }
 
 #transaction-item #desc {
@@ -148,4 +159,57 @@ header h1 {
   width: 25%;
   padding: 0.5rem 1rem;
   text-align: center;
+}
+
+/* Laptops 1024px */
+@media screen and (max-width: 1025px) {
+  header {
+    padding: 1rem 2rem;
+  }
+
+  #app-body {
+    padding: 1rem 2rem;
+    column-gap: 1rem;
+  }
+}
+
+/* Tablets 768px */
+@media screen and (max-width: 768px) {
+  #app-body {
+    padding: 1rem;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  header {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  #app-body {
+    padding: 1rem 0.5rem;
+  }
+
+  #amounts {
+    flex-direction: column;
+  }
+
+  #transaction-form {
+    padding: 1rem;
+  }
+
+  .total {
+    width: 80%;
+    margin: 1rem;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .total {
+    width: 75%;
+  }
 }

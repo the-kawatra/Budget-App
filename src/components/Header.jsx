@@ -4,7 +4,7 @@ const Header = ({ balance }) => {
   return (
     <header>
       <h1>Budget App</h1>
-      <div className="balance">&#x20B9;{balance}</div>
+      <div className="balance">Balance: &#x20B9;{balance}</div>
     </header>
   );
 };

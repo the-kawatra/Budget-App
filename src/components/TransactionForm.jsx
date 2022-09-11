@@ -25,6 +25,7 @@ const TransactionForm = ({ handleForm }) => {
         className="form-input"
         placeholder="Description..."
         autoComplete="off"
+        required
         value={values.desc}
         onChange={handleChange}
       />
@@ -33,12 +34,14 @@ const TransactionForm = ({ handleForm }) => {
         name="price"
         className="form-input"
         placeholder="Price..."
+        required
         value={values.price}
         onChange={handleChange}
       />
       <div
         name="transaction-type"
         id="transaction-type"
+        required
         value={values.type}
         onChange={handleChange}
       >
