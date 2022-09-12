@@ -2,16 +2,26 @@ import React from "react";
 
 const Amounts = ({ income, expense }) => {
   return (
-    <div id="amounts">
-      <div className="total">
+    <>
+      <div id="income-card" className="total card">
         <h3>Total Income</h3>
-        <p>&#x20B9;{income}</p>
+        <span>
+          {Intl.NumberFormat("en-IN", {
+            style: "currency",
+            currency: "INR",
+          }).format(income)}
+        </span>
       </div>
-      <div className="total">
+      <div id="expense-card" className="total card">
         <h3>Total Expense</h3>
-        <p>&#x20B9;{expense}</p>
+        <span>
+          {Intl.NumberFormat("en-IN", {
+            style: "currency",
+            currency: "INR",
+          }).format(expense)}
+        </span>
       </div>
-    </div>
+    </>
   );
 };
 

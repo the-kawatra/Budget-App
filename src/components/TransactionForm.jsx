@@ -17,7 +17,7 @@ const TransactionForm = ({ handleForm }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} id="transaction-form">
+    <form onSubmit={handleSubmit} id="transaction-form" className="card">
       <h3>New Transaction</h3>
       <input
         type="text"
@@ -41,26 +41,31 @@ const TransactionForm = ({ handleForm }) => {
       <div
         name="transaction-type"
         id="transaction-type"
-        required
         value={values.type}
         onChange={handleChange}
       >
-        <input
-          type="radio"
-          name="type"
-          id="income"
-          value="income"
-          checked={values.type === "income"}
-        />
-        Income
-        <input
-          type="radio"
-          name="type"
-          id="expense"
-          value="expense"
-          checked={values.type === "expense"}
-        />
-        Expense
+        <div>
+          <input
+            type="radio"
+            name="type"
+            id="income"
+            value="income"
+            required
+            checked={values.type === "income"}
+          />
+          <label for="income">Income</label>
+        </div>
+        <div>
+          <input
+            type="radio"
+            name="type"
+            id="expense"
+            value="expense"
+            required
+            checked={values.type === "expense"}
+          />
+          <label for="expense">Expense</label>
+        </div>
       </div>
       <input type="submit" className="form-input" value="Add Transaction" />
     </form>

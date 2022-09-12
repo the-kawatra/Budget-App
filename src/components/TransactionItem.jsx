@@ -5,7 +5,7 @@ const TransactionItem = ({ item, index, removeItem }) => {
     removeItem(i);
   };
 
-  const bgcolor = item.type === "expense" ? "#d8737f" : "#475979";
+  const bgcolor = item.type === "expense" ? "#ffa1a1" : "#00bacf";
 
   return (
     <div id="transaction-item" style={{ background: bgcolor }}>
@@ -13,7 +13,12 @@ const TransactionItem = ({ item, index, removeItem }) => {
         X
       </button>
       <div id="desc">{item.desc}</div>
-      <div id="price">&#x20B9;{item.price}</div>
+      <div id="price">
+        {Intl.NumberFormat("en-IN", {
+          style: "currency",
+          currency: "INR",
+        }).format(item.price)}
+      </div>
     </div>
   );
 };

@@ -10,15 +10,17 @@ const Transactions = ({ transaction, setTransaction }) => {
   };
 
   return (
-    <div id="transactions">
-      <h3>Transactions List</h3>
-      <input
-        type="text"
-        name="search"
-        id="search"
-        placeholder="Search..."
-        onChange={(e) => setSearch(e.target.value)}
-      />
+    <>
+      <div id="transactions-list-head" className="card">
+        <h3>Transactions List</h3>
+        <input
+          type="text"
+          name="search"
+          id="search"
+          placeholder="Search..."
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </div>
       <div id="transactions-list">
         {transaction
           .filter((val) => {
@@ -37,7 +39,7 @@ const Transactions = ({ transaction, setTransaction }) => {
             />
           ))}
       </div>
-    </div>
+    </>
   );
 };
 

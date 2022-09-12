@@ -42,11 +42,11 @@ function App() {
     <>
       <Header balance={amounts.balance} />
       <div id="app-body">
-        <div className="grid-container">
+        <div id="app-grid-left">
           <Amounts income={amounts.income} expense={amounts.expense} />
           <TransactionForm handleForm={handleForm} />
         </div>
-        <div className="grid-container">
+        <div id="app-grid-right">
           <Transactions
             transaction={transaction}
             setTransaction={setTransaction}

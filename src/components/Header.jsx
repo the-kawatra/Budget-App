@@ -4,7 +4,13 @@ const Header = ({ balance }) => {
   return (
     <header>
       <h1>Budget App</h1>
-      <div className="balance">Balance: &#x20B9;{balance}</div>
+      <div className="balance">
+        Balance:{" "}
+        {Intl.NumberFormat("en-IN", {
+          style: "currency",
+          currency: "INR",
+        }).format(balance)}
+      </div>
     </header>
   );
 };
