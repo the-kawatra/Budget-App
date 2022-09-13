@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import Alert from "./components/Alert";
 import Amounts from "./components/Amounts";
 import Header from "./components/Header";
 import TransactionForm from "./components/TransactionForm";
@@ -41,6 +42,7 @@ function App() {
   return (
     <>
       <Header balance={amounts.balance} />
+      {amounts.balance < 0 ? <Alert /> : null}
       <div id="app-body">
         <div id="app-grid-left">
           <Amounts income={amounts.income} expense={amounts.expense} />

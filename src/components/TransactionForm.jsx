@@ -53,7 +53,7 @@ const TransactionForm = ({ handleForm }) => {
             required
             checked={values.type === "income"}
           />
-          <label for="income">Income</label>
+          <label htmlFor="income">Income</label>
         </div>
         <div>
           <input
@@ -64,7 +64,7 @@ const TransactionForm = ({ handleForm }) => {
             required
             checked={values.type === "expense"}
           />
-          <label for="expense">Expense</label>
+          <label htmlFor="expense">Expense</label>
         </div>
       </div>
       <input type="submit" className="form-input" value="Add Transaction" />
