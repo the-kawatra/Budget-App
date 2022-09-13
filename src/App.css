@@ -126,6 +126,11 @@ header h1 {
   justify-content: space-around;
 }
 
+#transaction-type label:hover,
+#transaction-type input:hover {
+  cursor: pointer;
+}
+
 .form-input[type="submit"] {
   background: linear-gradient(to right, #ffce00 50%, #fe4880 50%);
   background-size: 200%;

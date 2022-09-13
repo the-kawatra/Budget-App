@@ -1,13 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { TransactionContext } from "../Context";
 import TransactionItem from "./TransactionItem";
 
-const Transactions = ({ transaction, setTransaction }) => {
+const Transactions = () => {
   const [search, setSearch] = useState("");
-
-  const removeItem = (i) => {
-    let temp = transaction.filter((item, index) => index !== i);
-    setTransaction(temp);
-  };
+  const { transaction } = useContext(TransactionContext);
 
   return (
     <>
@@ -31,12 +28,7 @@ const Transactions = ({ transaction, setTransaction }) => {
             }
           })
           .map((item, index) => (
-            <TransactionItem
-              item={item}
-              key={index}
-              index={index}
-              removeItem={removeItem}
-            />
+            <TransactionItem item={item} key={index} index={index} />
           ))}
       </div>
     </>

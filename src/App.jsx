@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import { useEffect, useState } from "react";
 import "./App.css";
 import Alert from "./components/Alert";
@@ -5,6 +6,7 @@ import Amounts from "./components/Amounts";
 import Header from "./components/Header";
 import TransactionForm from "./components/TransactionForm";
 import Transactions from "./components/Transactions";
+import { TransactionContext } from "./Context";
 
 function App() {
   const [amounts, setAmounts] = useState({
@@ -13,18 +15,7 @@ function App() {
     balance: 0,
   });
 
-  const [transaction, setTransaction] = useState([]);
-
-  const handleForm = (desc, price, type) => {
-    setTransaction([
-      ...transaction,
-      {
-        desc: desc,
-        price: price,
-        type: type,
-      },
-    ]);
-  };
+  const { transaction } = useContext(TransactionContext);
 
   useEffect(() => {
     let income = 0,
@@ -46,13 +37,10 @@ function App() {
       <div id="app-body">
         <div id="app-grid-left">
           <Amounts income={amounts.income} expense={amounts.expense} />
-          <TransactionForm handleForm={handleForm} />
+          <TransactionForm />
         </div>
         <div id="app-grid-right">
-          <Transactions
-            transaction={transaction}
-            setTransaction={setTransaction}
-          />
+          <Transactions />
         </div>
       </div>
     </>

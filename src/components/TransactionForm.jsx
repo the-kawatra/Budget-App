@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { TransactionContext } from "../Context";
 
 const TransactionForm = ({ handleForm }) => {
   const [values, setValues] = useState({ desc: "", price: "", type: "" });
+  const { transaction, setTransaction } = useContext(TransactionContext);
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -11,7 +13,10 @@ const TransactionForm = ({ handleForm }) => {
   };
 
   const handleSubmit = (e) => {
-    handleForm(values.desc, values.price, values.type);
+    setTransaction([
+      ...transaction,
+      { desc: values.desc, price: values.price, type: values.type },
+    ]);
     setValues({ desc: "", price: "", type: "" });
     e.preventDefault();
   };
@@ -44,7 +49,7 @@ const TransactionForm = ({ handleForm }) => {
         value={values.type}
         onChange={handleChange}
       >
-        <div>
+        <label>
           <input
             type="radio"
             name="type"
@@ -53,9 +58,9 @@ const TransactionForm = ({ handleForm }) => {
             required
             checked={values.type === "income"}
           />
-          <label htmlFor="income">Income</label>
-        </div>
-        <div>
+          Income
+        </label>
+        <label>
           <input
             type="radio"
             name="type"
@@ -64,8 +69,8 @@ const TransactionForm = ({ handleForm }) => {
             required
             checked={values.type === "expense"}
           />
-          <label htmlFor="expense">Expense</label>
-        </div>
+          Expense
+        </label>
       </div>
       <input type="submit" className="form-input" value="Add Transaction" />
     </form>
